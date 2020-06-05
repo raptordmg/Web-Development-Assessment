@@ -1,20 +1,24 @@
-function validateForm(){
-	"use strict"
+/*
+    Allows you to validate a username on the browser side
+ */
+function validateRegForm(formName) {
+    "use strict"
 
-	var uNameRegex = /^[A-Za-z]*$/;
-	var form = document.forms["signInForm"];
-	var userName = form["userName"].value.trim();
+    //Sets a variable containing the regex for the username
+    var uNameRegex = /^[A-Za-z0-9]{0,29}$/;
 
-	if (!uNameRegex.test(userName)) {
-		alert("A username must only contain latin alphabet characters");
-		form["userName"].focus();
-		return false;
-	}
+    //Gets data from the form
+    var form = document.forms[formName];
 
-	if (userName.length < 3 || userName.length > 30) {
-		alert("A valid username must be between 3 and 30 characters");
-		form["userName"].focus();
-		return false;
-	}
-	return true;
+    //Gets the username from the form data
+    var username = form["Username"].value.trim();
+
+    //If username does not comply with the regex an alert will be displayed and the username of the form will be focused
+    if (!uNameRegex.test(username)) {
+        alert("A username must only contain alphanumeric characters");
+        form["userName"].focus();
+        return false;
+    }
+
+    return true;
 }

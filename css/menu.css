@@ -1,0 +1,41 @@
+nav a {
+    color: skyblue;
+    padding: 10px 20px;
+    display: block;
+}
+
+nav a:hover {
+    color: dodgerblue;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav > ul > li {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -4px;
+}
+
+nav > ul > li:first-child {
+    margin-left: 0;
+}
+
+nav > ul > li > ul {
+    text-align: left;
+    width: auto;
+    display: none;
+    background: dodgerblue;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999999;
+}
+
+nav > ul > li:hover > ul {
+    display: block;
+}

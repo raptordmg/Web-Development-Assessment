@@ -1,25 +1,39 @@
+<?php
+require 'userSession.php';
+require 'pageElements.php';?>
+
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 	<head>
 		<title>Register</title>
+        <?php writeCommonStyles();?>
+        <script src="js\displayError.js"></script>
 	</head>
 	<body>
 		<div id="container">
+            <div id="header"> <?php displaySignIn(); ?></div>
+                  <?php displayMenu(REGISTER);?>
 
-			<h1>New User Registration</h1>
+
+            <div id="content" style="overflow: auto">
+			    <h1>New User Registration</h1>
 		
-			<p>Please enter the following details to complete your registration...</p>
+			    <p>Please enter the following details to complete your registration...</p>
 
-			<form action="processRegistration.php" name="registrationForm" method="post">
-			<table class="twoColForm">
-				<tr><td>Your name:</td><td><input type="text" name="Name"></td></tr>
-				<tr><td>Your chosen username:</td><td><input type="text" name="Username"></td></tr>
-				<tr><td>Your email address:</td><td><input type="text" name="email"></td></tr>
-				<tr><td>Your chosen password:</td><td><input type="password" name="password"></td></tr>
-				<tr><td>Confirm your password:</td><td><input type="password" name="ConfirmPassword"></td></tr>
-				<tr><td colspan="2"><input type="submit" value="Submit Details"></td></tr>
-			</table>
-		</form>
+            <?php
+            //Displays an error message
+            if (isset($_SESSION['errorMsg'])) {
+                $errorMsg = $_SESSION['errorMsg'];
+                echo "<script>displayError(\"$errMsg\"); </script>";
+                unset($_SESSION['errorMsg']);
+            }
+            ?>
+
+			<?php displayRegForm(); ?>
+        </div>
+            <?php displayFooter(); ?>
+        </div>
+
 	</body>
 </html>

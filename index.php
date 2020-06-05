@@ -1,27 +1,37 @@
-<!DOCTYPE html>
 <?php
 require 'userSession.php';
 require 'pageElements.php';
 ?>
 
-<html>
-    <head>
-        <title>Home</title>
+<!DOCTYPE html>
 
-        <?php writeMetatags('Home page for RaptorDMG\'\s website'); ?>
-        <?php loadCommonStyles(); ?>
-    </head>
+<html lang="en">
+<head>
+    <title>Home</title>
 
-    <body>
-        <div id="container">
-            <?php dislayHeader(HOME); ?>
-            <?php displayMenu(HOME); ?>
+    <?php writeMetatags('Music Online is the place to be if your a fan of vinyl music'); ?>
+    <?php writeCommonStyles(); ?>
+    <script src="js\displayError.js"></script>
+</head>
 
-            <div id="content" style="overflow:auto;">
-                <h1>Hello, and welcome to my website</h1>
-                <p>This is a personal website for my software</p>
-            </div>
-            <?php displayFooter(); ?>
-        </div>
-    </body>
+<body>
+    <?php
+    //Display an error message if set
+    $errMsg = null;
+    if (isset($_SESSION['errorMsg'])) {
+        $errMsg = $_SESSION['errorMsg'];
+        echo "<script>displayError(\"$errMsg\"); </script>";
+        unset($_SESSION['errorMsg']);
+    }
+    ?>
+<div id="container">
+    <div id="header"><?php displaySignIn(); ?></div>
+    <?php displayMenu(HOME); ?>
+
+    <div id="content" style="overflow:auto;">
+        <h1>Hello, and welcome to MusicOnline</h1>
+        <p>This is the place to be if your a fan of vinyl music</p>
+    </div><?php displayFooter(); ?>
+</div>
+</body>
 </html>

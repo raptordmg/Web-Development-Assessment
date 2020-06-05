@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS style definitions for high contrast appearance */
+
+
+#content {
+	background-color: #000;
+	color: #6F0;
+}
+
+a:link {
+	color: #0F0;
+	text-decoration: underline; 
+}
+
+a:visited {
+	color: #0F0;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus { 
+	text-decoration: none;
+}
+
+nav ul {
+	background-color: #000;
+}
+
+#footer {
+	background-color: #000;
+	color: #6F0;
+}
+
+
